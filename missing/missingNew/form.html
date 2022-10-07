@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>河源职业技术学院学生请假流程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/easyui.css"  />
+    <link rel="stylesheet" type="text/css" href="../css/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../css/engine_openform_mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../css/form.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.1/vue.js"></script>
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body style="margin: 46px 0px 0px; zoom: 1;">
+    <div id="app">
+        <table width="100%" border="0" cellpadding="2" cellspacing="6" class="ApprovalToptable" id="TopFormTable">
+            <tbody>
+                <tr>
+                    <td colspan="4" align="center" style="padding-top:5px;font-size:20px;font-family:'微软雅黑','宋体';color:#000">
+                        <b>河源职业技术学院新冠肺炎疫情防控期间外出审批</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap="" width="5%" align="right">当前处理人:</td>
+                    <td width="40%"></td>
+                    <td align="right" width="40%" nowrap="">申请时间:</td>
+                    <td width="5%" nowrap="">{{time1}}</td>
+                </tr>
+                <tr>
+                    <td align="right">当前状态:</td>
+                    <td>已结束</td>
+                    <td align="right">申请者:</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td align="right">流转记录:</td>
+                    <td><a href="#">查看流转记录</a>
+                    </td>
+                    <td align="right">图形监控:</td>
+                    <td><a href="#">查看流程图</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="linkeytable" data-sort="sortDisabled">
+            <tbody>
+                
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">姓名<span id="_baidu_bookmark_start_1" style="line-height: 0px; display: none;">‍</span></td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="XM">{{name}}</span></td>
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">学号<br></td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="DH">{{stuNo}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">学院<br></td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="DH">{{college}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">专业</td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="ZYBJ">{{professional}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">班级</td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="NJ">{{class1}}</span></td>
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">联系电话<br></td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="DH">{{phone}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1" class="texttd">外出时间
+                    </td>
+                    <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1"><span id="QJSJ1"><?php echo date("Y-m-d H:i",time()-5000)?></span>&nbsp;至&nbsp;<span id="QJSJ2"><?php echo date("Y-m-d H:i",time()+86400-5000)?></span
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd"><span style="font-size: 12px;"><span style="font-size: 12px;">前往目的地</span></span></td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="QWDD">{{place}}</span></td>
+                </tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd"><span style="font-size: 12px;"><span style="font-size: 12px;">外出事由</span></span></td>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="QWDD">{{why}}</span></td>
+                </tr>
+                
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">备注<span id="_baidu_bookmark_start_0" style="line-height: 0px; display: none;">‍</span></td>
+                    <td valign="middle" rowspan="1" colspan="1">
+                        <div id="file1" class="attachmentlist" readtype="true">
+                        </div>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">审批意见</td>
+                    <td valign="middle" rowspan="1" colspan="1"><span class="ue_t" id="SPYJ" name="SPYJ" type="remark" remarktype="ALL">
+                            <div style="padding-left:8px;color:#0066cc">同意!</div>
+                            <div align="right" style="padding-right:30px;">辅导员审批 <font color="#339900">
+                                    {{teacher}} /教职工/教学部门/{{college}}</font>
+                                <font color="#999999">{{time2}}</font>
+                            </div>
+                            <hr style="border: 1px dashed #cccccc; width: 98%; height: 1px;" align="left">
+                        </span></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <p><br></p><!-- FormBody End-->
+</div>
+<script>
+    let nowTime = new Date().getTime();
+        // 随机数函数
+    function rand(minimum, maximum){
+        return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+    }
+
+    // 获取时间格式
+    function getNowTime(usertime){
+        console.log(usertime);
+        let time = new Date(usertime);
+        let y = time.getFullYear();
+        let mon = (time.getMonth()+1)>=10?(time.getMonth()+1):'0'+(time.getMonth()+1); 
+        let d = (time.getDate())>=10?time.getDate():'0'+(time.getDate());
+        let h = (time.getHours())>=10?time.getHours():'0'+(time.getHours());
+        let m = (time.getMinutes())>=10?time.getMinutes():'0'+(time.getMinutes());
+        // console.log(mon);
+        return y+'-'+mon+'-'+d+' '+h+':'+m
+    }
+    var urlParams=new URLSearchParams(location.search);
+    new Vue({
+        el:'#app',
+        data() {
+            return {
+                name: urlParams.get("name"),
+                year:urlParams.get("year"),
+                college:urlParams.get("college"),
+                professional:urlParams.get("professional"),
+                class1:urlParams.get("class"),
+                phone:urlParams.get("phone"),
+                stuNo:urlParams.get("stuNo"),
+                why:urlParams.get("why"),
+                place:urlParams.get("place"),
+                teacher:urlParams.get("teacher"),
+                time1:getNowTime(nowTime-1000*rand(4000,5000)),
+                time2:getNowTime(nowTime-1000*rand(7000,8000)),
+            }
+        },
+    })
+</script>
+
+</body>
+
+</html>
+

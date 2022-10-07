@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tools</title>
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script src="./js/haha.js"></script>
+		
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+			
+
+		</script>
+	</head>
+	<body>
+        
+	<div id="conf"></div>
+	<script>
+			const canvas1 = document.getElementById('conf')
+            const jsConfetti = new JSConfetti({ canvas1 })
+            jsConfetti.addConfetti({
+            emojis: [' 🇨🇳'],
+            emojiSize: 100,
+            confettiNumber: 20
+            })
+	</script>
+		<!-- partial:index.partial.html -->
+		<div class="container">
+			<h2>💁🏼欢度国庆，<span class="title">Tools</span></h2>
+			<div class="accordion">
+				<div class="accordion-item">
+					<button id="accordion-button-1" onclick="goto('./missingOld/index.html')"><span
+							class="accordion-title shake">🔥学生请假流程样式</span></button><span class="icon has"
+						aria-expanded="false"></span>
+					<div class="accordion-content">
+						<p>简介：学生请假流程是普通请假条模板，是最普遍的请假条类型，<a href="./missingOld/index.html"
+								target="_blank"><b>可点击标题跳转或此处跳转</b></a>。出行请注意安全，疫情防控期间请佩戴好口罩，本页面仅供前端学习使用，不承担任何安全责任。部分低端手机可能出现跳转慢和不跳转的情况。请不要急躁，耐心等待或尝试重新刷新页面，请不要连续多次点击，避免网页卡死。
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button-2" onclick="goto('./missingNew/index.html')"><span
+							class="accordion-title shake">🔥新冠肺炎样式</span></button><span class="icon has"
+						aria-expanded="false"></span>
+					<div class="accordion-content">
+						<p>简介：新冠肺炎样式是新冠肺炎疫情防控期间外出审批模板，是特殊请假条类型，<a href="./missingNew/index.html"
+								target="_blank"><b>可点击标题跳转或此处跳转</b></a>。出行请注意安全，疫情防控期间请佩戴好口罩，本页面仅供前端学习使用，不承担任何安全责任。部分低端手机可能出现跳转慢和不跳转的情况。请不要急躁，耐心等待或尝试重新刷新页面，请不要连续多次点击，避免网页卡死。
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button-3" onclick="goto('./missingCat/index.html')"><span
+							class="accordion-title shake">🔥辅导猫样式</span></button><span class="icon has"
+						aria-expanded="false"></span>
+					<div class="accordion-content">
+						<p>简介：辅导猫样式是全国高校生请假条模板，是大多数高校都在使用的请假条类型，<a href="./missingCat/index.html"
+								target="_blank"><b>可点击标题跳转或此处跳转</b></a>。出行请注意安全，疫情防控期间请佩戴好口罩，本页面仅供前端学习使用，不承担任何安全责任。部分低端手机可能出现跳转慢和不跳转的情况。请不要急躁，耐心等待或尝试重新刷新页面，请不要连续多次点击，避免网页卡死。
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button" aria-expanded="false"><span
+							class="accordion-title">👍🏻二手交流群</span><span class="another"
+							aria-hidden="true"></span></button>
+					<div class="accordion-content">
+						<p>简介：为广大河职院在校学生提供二手闲置物品交易平台，提供生活服务和学生互相交流的主要平台。</p>
+						<img src="./img/qun.jpg" alt="" srcset="">
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button" aria-expanded="false"><span
+							class="accordion-title">👍🏻意见反馈</span><span class="another"
+							aria-hidden="true"></span></button>
+					<div class="accordion-content">
+						<p>大家好，首先非常感谢大家对我们的支持，这是我们第一次对界面进行整改和优化，提高了网站整体的流畅性，为了以后能更好发扬优势并改进不足，因此欢迎大家积极给我们提供意见反馈，这将使我们的工作不断进步和提升，您的意见将会是我们最宝贵的财富。最后，非常感谢大家的支持和认可。意见反馈邮箱：<a
+								href="mailto:userspring@proton.me">userspring@proton.me</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- partial -->
+		<!-- <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script> -->
+		<script>
+			const items = document.querySelectorAll(".has");
+			const btn = document.querySelectorAll("#accordion-button");
+			console.log(items);
+			console.log(btn);
+			let toUrl = document.querySelectorAll(".shake");
+			
+			function toggleAccordion() {
+				let itemToggle = this.getAttribute('aria-expanded');
+
+				for (i = 0; i < items.length; i++) {
+					items[i].setAttribute('aria-expanded', 'false');
+					brate()
+				}
+
+				if (itemToggle == 'false') {
+					this.setAttribute('aria-expanded', 'true');
+					brate()
+				}
+			}
+			// 震动效果
+			function brate(){
+				
+				if (navigator.vibrate) {
+					navigator.vibrate([80, 50, 50]);
+				} else if (navigator.webkitVibrate) {
+					navigator.webkitVibrate([80, 50, 50]);
+				}
+			}
+			function ggleAccordion() {
+				let itemToggle = this.getAttribute('aria-expanded');
+
+				for (i = 0; i < btn.length; i++) {
+					btn[i].setAttribute('aria-expanded', 'false');
+					
+					// 振动2秒
+					brate()
+				}
+				if (itemToggle == 'false') {
+					this.setAttribute('aria-expanded', 'true');
+					// 振动2秒
+					brate()
+				}
+			}
+			toUrl.forEach(item => item.addEventListener('click', brate));
+			items.forEach(item => item.addEventListener('click', toggleAccordion));
+			btn.forEach(item => item.addEventListener('click', ggleAccordion));
+		</script>
+
+
+		<script>
+			let title = document.querySelector('.title');
+			let hours = new Date().getHours();
+			console.log(hours);
+			switch (true) {
+				case hours >= 19:
+					title.innerHTML = '晚上好';
+					break;
+				case hours >= 18:
+					title.innerHTML = '傍晚好';
+					break;
+				case hours >= 14:
+					title.innerHTML = '下午好';
+					break;
+				case hours >= 12:
+					title.innerHTML = '中午好';
+					break;
+				case hours >= 9:
+					title.innerHTML = '上午好';
+					break;
+				case hours >= 7:
+					title.innerHTML = '早上好';
+					break;
+				case hours >= 5:
+					title.innerHTML = '清晨好';
+					break;
+				case hours >= 0:
+					title.innerHTML = '凌晨好';
+					break;
+				default:
+					title.innerHTML = 'Tools';
+			}
+
+			function goto(url) {
+				window.location.href = url;
+			}
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>辅导猫生成页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+    <link rel="stylesheet" href="../css/missingStyle.css">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <script type="text/javascript">
+        var isCommitted = false;//表单是否已经提交标识，默认为false
+        function dosubmit(){
+            if(isCommitted==false){
+                isCommitted = true;//提交表单后，将表单是否已经提交标识设置为true
+                return true;//返回true让表单正常提交
+            }else{
+            
+            return false;//返回false那么表单将不提交
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="header">
+    <div class="span"><ion-icon name="megaphone-outline"></ion-icon></div>
+    <div class="wap">
+       <!-- <p>喜迎二十大，永远跟党走！热烈欢迎2022级新同学,Welcome new students！</p> -->
+       <p>我们生在红旗下，长在春风里，人民有信仰，国家有力量，国庆快乐♥</p>
+    </div>
+</div>
+<form action="./form.html" onsubmit="return dosubmit()" method="get">
+    <div class="segment">
+        <h1>辅导猫生成页面</h1>
+    </div>
+    <label><input type="text" name="name" placeholder="姓名 (张某某)" required /></label>
+    <label><input type="text" name="phone" placeholder="紧急联系人电话 (190****9811)" required /></label>
+    <label><input type="text" name="why" placeholder="原因 (去干饭)" required /></label>  
+    <label><input type="text" name="teacher" placeholder="辅导员姓名 (陈某某)" required /></label>
+	<label><input type="text" name="stuNo" placeholder="学号(2021XXXXXX)" required /></label>  
+	<label><input type="text" name="sex" placeholder="性别(男)" required /></label>  
+	<label><input type="text" name="year" placeholder="年级(2021)" required /></label>  
+	<label><input type="text" name="college" placeholder="学院(机电工程学院)" required /></label>  
+	<label><input type="text" name="professional" placeholder="专业 (机械设计与制造)" required /></label>  
+	<label><input type="text" name="class" placeholder="班级 (21机械设计与制造2班)" required /></label>  
+	<label><input type="text" name="dormitory" placeholder="宿舍(A1***)" required /></label>
+	<label><input type="text" class="nowPlace" name="nowPlace" placeholder="发起位置 (广东省河源市源城区)" value="广东省河源市源城区" required /></label>
+	<label><input type="text" class="place" name="place" placeholder="目的地 (广东省/河源市/源城区/商业街)" value="广东省/河源市/源城区/商业街" required /></label>
+    <button class="red" type="submit" onclick='toHello()'>在线生成 <ion-icon name="cloudy"></ion-icon></button>
+</form>
+<script>
+
+    let param = JSON.parse(localStorage.getItem('paramCat2')) || [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        ''
+        
+    ];
+    let inputValue = document.querySelectorAll('input');
+    for (let i = 0;i<inputValue.length;i++){
+        inputValue[i].value = param[i];
+        if(inputValue[i].value == 'undefined'){
+            inputValue[i].value = ''
+        }
+    }
+    document.querySelector('.nowPlace').value = '广东省河源市源城区';
+    document.querySelector('.place').value = '广东省/河源市/源城区/商业街';
+    function toHello(){
+        let input = document.querySelectorAll('input');
+        let param = []
+        for (let i = 0;i<input.length;i++){
+            param.push(input[i].value);
+        }
+        localStorage.setItem('paramCat2', JSON.stringify(param))
+    }
+
+</script>
+
+</body>
+</html>

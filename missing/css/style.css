@@ -1,0 +1,256 @@
+/* devanagari */
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hind/v16/5aU19_a8oxmIfMJaER2SjQpf.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hind/v16/5aU19_a8oxmIfMJaERKSjQpf.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hind/v16/5aU19_a8oxmIfMJaERySjQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hind/v16/5aU69_a8oxmIdGh4BCOz.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hind/v16/5aU69_a8oxmIdGd4BCOz.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/hind/v16/5aU69_a8oxmIdGl4BA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+a{
+  color: #a7a1a1;
+  /* text-decoration: none; */
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hind", sans-serif;
+  background: #EBECF0;
+  color: #4d5974;
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid #c7c7c7;
+  position: relative;
+}
+.accordion .accordion-item button[aria-expanded=true] {
+  border-bottom: 1px solid #03b5d2;
+}
+.accordion button {
+  display: block;
+  text-align: left;
+  width: 80%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.accordion button:hover, .accordion button:focus {
+  cursor: pointer;
+  color: #03b5d2;
+}
+.accordion button:hover::after, .accordion button:focus::after {
+  cursor: pointer;
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+.icon, .another{
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+
+
+.icon::before, .another::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.icon::after,.another::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+
+
+
+.accordion .has[aria-expanded=true] {
+  color: #03b5d2;
+}
+.accordion .has[aria-expanded=true]::after {
+  width: 0;
+}
+.accordion .has[aria-expanded=true] + .accordion-content {
+  opacity: 1;
+  max-height: 13em;
+  padding-left:.5rem;
+  padding-right:.5rem;
+  box-sizing: border-box;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+/* 特殊位置 */
+.accordion #accordion-button{
+  width: 100%;
+}
+.accordion #accordion-button[aria-expanded=true] {
+  color: #03b5d2;
+}
+.accordion #accordion-button[aria-expanded=true] .icon::after {
+  width: 0;
+}
+.accordion #accordion-button[aria-expanded=true] + .accordion-content {
+  opacity: 1;
+  max-height: 13em;
+  padding-left:.5rem;
+  padding-right:.5rem;
+  box-sizing: border-box;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: auto;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 1em 0;
+}
+.accordion .accordion-content img{
+  width: 50%;
+  margin-left: 25%;
+  /* margin: auto; */
+}
+h2{
+  letter-spacing: 5px;
+}
+
+/* 滚动条 */
+.header{
+  /* background-color: #BABECC; */
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #cacedc;
+  border-radius: 5px;
+  
+
+}
+.header .span{
+  display: inline-block;
+}
+.wap{
+  width: 90%;
+  display: inline-block;
+  overflow: hidden;
+  
+}
+
+
+.wap p{
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 3px;
+  width: 100%;
+  transform: translate(100%);
+  animation: nameTo 10s linear infinite;
+  color: #AE1100;
+}
+
+@-webkit-keyframes nameTo{
+  0%{
+    transform: translate(100%);
+  }
+  25%{
+    transform: translate(40%);
+  }
+  50%{
+    transform: translate(-40%);
+  }
+  75%{
+    transform: translate(-120%);
+  }
+  100%{
+    transform: translate(-200%);
+  }
+}
+.header ion-icon {
+  font-size: 19px;
+  color: #AE1100;
+}

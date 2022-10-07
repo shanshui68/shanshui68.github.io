@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>请假详情</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.1/vue.js"></script>
+		<script src="../js/qrcode.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<style>
+		body {
+			background: rgb(245, 245, 245);
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		#menu {
+			display: flex;
+			background: #fff;
+		}
+
+		#menu li {
+			width: 50%;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+
+		#menu li span {
+			display: block;
+			height: 45px;
+			line-height: 45px;
+			width: 100px;
+			box-sizing: border-box;
+		}
+
+		#menu li .border{
+			color: rgb(17, 156, 248);
+			border-bottom: 3px solid rgb(17, 156, 248);
+		}
+
+		#banner {
+			height: 125px;
+			width: 100%;
+			overflow: hidden;
+			/* background: rgb(6, 212, 240); */
+		}
+
+		#banner .top {
+			height: 20px;
+			background: orange;
+			display: flex;
+			justify-content: center;
+		}
+
+		#banner .top p {
+			line-height: 20px;
+			color: #fff;
+			font-size: 13px;
+			letter-spacing: 1px;
+		}
+
+		#banner .top span {
+			display: inline-block;
+			background: #fff;
+			width: 15px;
+			height: 15px;
+			font-size: 15px;
+			line-height: 15px;
+			border-radius: 100%;
+			color: #ccc;
+			text-align: center;
+			font-weight: bold;
+		}
+
+		@keyframes scrollToUp {
+			0% {
+				background-position: 0 0;
+			}
+
+			100% {
+				background-position: 200vw 0;
+			}
+		}
+
+		#banner .bottom {
+			height: 100px;
+			width: 100%;
+			background-image: url('http://wzjlovewxf.cn/files/banner.png');
+			background-repeat: repeat-x;
+			background-size: 100% 100%;
+			
+			animation: scrollToUp 7s linear infinite;
+			color: #fff;
+			position: relative;
+		}
+
+		#banner .bottom .yes img {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+
+		}
+
+		#banner .bottom .yes {
+			font-size: 17px;
+			height: 29px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			letter-spacing: 3px;
+		}
+
+		#banner .bottom .jia {
+			font-size: 34px;
+			text-align: center;
+			letter-spacing: 5px;
+		}
+
+		#banner .bottom span {
+			position: absolute;
+			top: 10px;
+			right: 20px;
+		}
+
+		.clock {
+			font-size: 12px;
+			display: flex;
+			margin-top: 7px;
+			justify-content: center;
+
+
+		}
+
+		.clock #clock {
+			display: block;
+			width: 180px;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 1px;
+			text-align: center;
+			border-radius: 10px;
+		}
+
+		#header,
+		#content,
+		#tab {
+			padding: 6px 22px;
+			box-sizing: border-box;
+			width: 100%;
+			line-height: 25px;
+			background: #fff;
+			font-size: 13px;
+			margin-bottom: 18px;
+		}
+
+		#content>p,
+		#tab>p {
+			font-size: 16px;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			display: block;
+		}
+
+		.t {
+			width: 100%;
+			display: flex;
+		}
+
+		.t div {
+			width: 50%;
+		}
+
+		.l {
+			color: rgb(158, 158, 158);
+		}
+
+		.c {
+			color: rgb(32, 136, 255);
+		}
+		.r{
+			color: #666;
+		}
+		.orange {
+			color: orange;
+		}
+
+		.time {
+			display: flex;
+			position: relative;
+		}
+
+		.time .right {
+			width: 100px;
+			height: 35px;
+			background: rgba(220, 244, 255, 0.74);
+			border: 1px solid rgba(32, 136, 255, 0.616);
+			border-radius: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: rgba(32, 136, 255, 0.788);
+			font-weight: bold;
+			font-size: 14px;
+			position: absolute;
+			right: 0;
+		}
+
+		.another .why {
+			width: 100%;
+		}
+
+		.another .why .l {
+			display: inline-block;
+			width: 75px;
+		}
+
+		.another .why .r {
+			display: inline-block;
+			width: calc(100% - 75px);
+			vertical-align: text-top;
+			line-height: normal;
+		}
+
+		.block span {
+			height: 25px;
+		}
+
+		.block .zero {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			border: 1px solid rgb(32, 136, 255);
+			border-radius: 100%;
+
+		}
+
+		.block .zero2 {
+			border: 1px solid rgb(36, 201, 58);
+		}
+
+		.block,
+		.process {
+			position: relative;
+		}
+
+		.center {
+			position: absolute;
+			top: -3px;
+			left: 28px;
+		}
+
+		.b {
+			position: absolute;
+			top: 20px;
+			left: 9px;
+			height: 9px;
+			width: 1px;
+			background: #ccc;
+		}
+
+		.theTime {
+			float: right;
+		}
+
+		.d {
+			width: 20px;
+			text-align: center;
+			color: rgb(158, 158, 158);
+		}
+
+		/* 审批意见 */
+		.opinion {
+			width: calc(100% - 30px);
+			border: 1px solid rgb(228, 227, 227);
+			border-radius: 4px;
+			background: rgb(250, 250, 250);
+			margin-left: 30px;
+			color: rgb(184, 180, 180);
+			box-sizing: border-box;
+			padding-left: 10px;
+		}
+
+		#tab {
+			margin-bottom: 50px;
+			padding-bottom: 20px;
+		}
+
+		.flex {
+			position: fixed;
+			bottom: 1px;
+			background: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 50px;
+			border: 1px solid rgba(233, 232, 232, 0.815);
+		}
+
+		.flex div {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+		}
+
+		.flex div:first-child {
+			border-right: 1px solid rgba(233, 232, 232, 0.815);
+		}
+
+		.flex div:last-child {
+			background: rgba(32, 136, 255);
+			color: #fff;
+		}
+		
+		.qrCode{
+			/* height: calc(100vh - 170px); */
+			width: 100%;
+			display: none;
+			/* background-color: red; */
+		}
+		.qrCode .box{
+			width: 150px;
+			height: 150px;
+			border-radius: 15px;
+			padding: 15px;
+			margin: auto;
+			margin-top: 50px;
+			box-shadow: 4px 4px 20px #ccc,
+						-4px -4px 20px #ccc;
+			overflow: hidden;
+			background-color: #fff;
+		}
+		.qrCode .box img{
+			width: 100%;
+			height: 100%;
+		}
+		.qrCode p{
+			font-size: 10px;
+			text-align: center;
+			color: #333;
+			margin: 15px auto;
+		}
+		.qrCode #clock2{
+			margin: auto;
+			background-color: #409cff;
+			height: 20px;
+			width: 200px;
+			padding: 4px;
+			font-size: 13px;
+			
+			/* box-sizing: border-box; */
+			border-radius: 20px;
+			text-align: center;
+			color: #fff;
+		}
+		
+		
+		/*
+		用户信息框弹出
+		*/
+	   #user{
+		   position: fixed;
+		   top:0;
+		   left: 0;
+		   right: 0;
+		   display:none;
+		   width:100%;
+		   height:100vh;
+		   justify-content: center;
+		   align-items: center;
+		   background-color: rgba(0, 0, 0, .3);
+	   }
+ 
+	   #user .content{
+	     z-index: 4;
+		 min-width: 60%;
+		 max-width: 90%;
+		 height: 300px;
+	     padding: 15px;
+	     border-radius:10px;
+	     background-color: #fff;
+		 color: #525e7c;
+		 font-family: '黑体';
+		font-weight: bold;
+		 position: relative;
+	   }
+		#user .content ion-icon{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 25px;
+		}
+	   #user .content p{
+		   text-align: center;
+		   font-size: 18px;
+		    
+	   }
+	   	#user .content ul li{
+			height: 30px;
+			font-size: 16px;
+			line-height: 30px;
+			letter-spacing: 1px;
+		}
+
+	</style>
+
+	<body>
+		<ul id="menu">
+			<li>
+				<span class="border">请假信息</span>
+			</li>
+			<li>
+				<span>核验二维码</span>
+			</li>
+		</ul>
+		<div id="banner">
+			<div class="top">
+				<p><span>?</span>如何销假？</p>
+			</div>
+			<div class="bottom">
+				<span class="userInfo" onclick="checkBtn(event)">个人信息 ></span>
+				<div class="yes">
+					<img src="../img/yes.png" alt="">
+					审批已通过
+				</div>
+				<div class="jia">
+					正在休假中
+				</div>
+				<!-- <div class="clock">
+					<div id="clock"></div>
+				</div> -->
+
+			</div>
+		</div>
+		<div id="vue">
+
+
+		<div class='missing'>
+			<div id="header">
+				<div class="t">
+					<div>
+						<span class="l">请假类型：</span><span class="r">事假</span></span>
+					</div>
+					<div>
+						<span class="l">需要离校：</span><span class="r orange">离校</span></span>
+					</div>
+				</div>
+				<div><span class="l">销假规则：</span><span class="r orange">离校请假需要销假，非离校请假无需销假 <span class="c">查看 ></span>
+				</div>
+				<div><span class="l">实际休假时间：</span><span class="r">-</span></div>
+			</div>
+
+			<div id="content">
+				<p>我的 请假申请</p>
+				<div class="time">
+					<div class="left">
+						<p><span class="l">开始时间：</span><span class="r"><b>{{startTime}}</b></span></p>
+						<p><span class="l">结束时间：</span><span class="r"><b>{{ endTime }}</b></span></p>
+					</div>
+					<div class="right">
+						{{allTime}}
+					</div>
+				</div>
+				<div class="another">
+					<p><span class="l">审批流程：</span><span class="r">共1步 <span class="c">查看></span></span></p>
+					<p><span class="l">紧急联系人：</span><span class="r">{{phone}}</span></p>
+					<div class="why"><span class="l">请假原因：</span><span class="r">{{why}}</span></div>
+					<p><span class="l">发起位置：</span><span class="r"><span class="c">{{nowPlace}}</span></span>
+					</p>
+					<p><span class="l">抄送人：</span><span class="r">无</span></p>
+					<p><span class="l">目的地：</span><span class="r"><span>{{place}}</span></span></p>
+					<p><span class="l">宿舍信息：</span><span class="r">-</span></p>
+					<p class="orange">本人承诺填写的信息真实有效，并对本次提交请假申请的信息真实性负责。</p>
+				</div>
+			</div>
+
+			<div id="tab">
+				<p>审批流程记录</p>
+				<div class="process">
+					<div class="block">
+						<span class="zero"></span>
+						<span class="center">{{name}} - 发起申请</span>
+						<span class="theTime">{{initiate}}</span>
+					</div>
+					<span class="b"></span>
+					<div class="block">
+						<span class="zero zero2"></span>
+						<span class="center">一级：{{teacher}} - 审批<span
+								style="color: rgb(36, 201, 58)">通过</span></span>
+						<span class="theTime">{{through}}</span>
+					</div>
+				</div>
+				<div class="opinion">
+					审批意见： 无
+				</div>
+			</div>
+
+			<div class="flex">
+				<div>转发</div>
+				<div>申请续假</div>
+				<div>去销假</div>
+			</div>
+		</div>
+		
+		<div class="qrCode">
+			<div class="box">
+				<!-- <img src="http://wzjlovewxf.cn/files/catCode.jpg" alt="" srcset=""> -->		<div class="img"></div>
+			</div>
+			<p>请使用辅导猫扫码核验请假真伪</p>
+			<div id="clock2">
+				
+			</div>
+		</div>
+		
+		<div id="user" onclick="closeBox()">
+			<div class='content' onclick='stopEvent(event)'>
+				<ion-icon onclick="closeBox()" name="close"></ion-icon>
+				
+				<p>个人信息</p>
+				<ul class="userUl">
+					<li>•照片：-</li>
+					<li>•姓名：{{name}}</li>
+					<li>•学号：{{stuNo}}</li>
+					<li>•性别：{{sex}}</li>
+					<li>•年级：{{year}}</li>
+					<li>•学院：{{college}}</li>
+					<li>•专业：{{professional}}</li>
+					<li>•班级：{{class1}}</li>
+					<li>•宿舍：{{dormitory}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+        <script>
+			// new 一个对象，传入一个字符串，获取get参数
+			var urlParams=new URLSearchParams(location.search);
+			// 开始时间离现在1-2小时，
+			// 结束时间-开始时间为4-6小时，
+			// 发起时间离现在3-4小时
+			// 审批通过2-3小时
+			// 现在时间	
+			// 随机数函数
+			function rand(maximum, minimum){
+				return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+			}
+
+			let nowTime = new Date().getTime();
+
+			let startTime = nowTime-rand(3600*2000,3600*1000)
+			let allTime = rand(3600*6000,3600*4000);
+			let endTime = startTime + allTime;
+
+			let hours = Math.trunc(allTime/3600000);
+			let minus = Math.trunc((allTime - (3600000*hours))/60000)
+			let all = hours+'小时'+minus+'分钟';
+
+			// 发起时间
+			let initiateTime = nowTime-rand(3600*4000,3600*3000);
+			// 通过时间
+			let throughTime = nowTime-rand(3600*3000,3600*2000);
+			
+			function getNowTime(usertime){
+				
+				let time = new Date(usertime);
+				
+				let mon = (time.getMonth()+1)>=10?(time.getMonth()+1):'0'+(time.getMonth()+1); 
+				let d = (time.getDate())>=10?time.getDate():'0'+(time.getDate());
+				
+				let h = (time.getHours())>=10?time.getHours():'0'+(time.getHours());
+				let m = (time.getMinutes())>=10?time.getMinutes():'0'+(time.getMinutes());
+				
+				return mon+'-'+d+' '+h+':'+m
+			}
+			new Vue({
+            el:'#vue',
+            data() {
+                return {
+                    name: urlParams.get("name"), // 获取的时候传入指定的key即可
+					stuNo:urlParams.get("stuNo"),
+					sex:urlParams.get("sex"),
+					year:urlParams.get("year"),
+					college:urlParams.get("college"),
+					professional:urlParams.get("professional"),
+					class1:urlParams.get("class"),
+					dormitory:urlParams.get("dormitory"),
+					phone:urlParams.get("phone"),
+					why:urlParams.get("why"),
+					nowPlace:urlParams.get("nowPlace"),
+					place:urlParams.get("place"),
+					teacher:urlParams.get("teacher"),
+					startTime:getNowTime(startTime),
+					endTime:getNowTime(endTime),
+					allTime:all,
+					initiate:getNowTime(initiateTime),
+					through:getNowTime(throughTime),
+                }
+            },
+        })
+			
+			
+            
+        </script>
+		<script>
+		var qrcode = new QRCode(document.querySelector(".img"), {    // 显示二维码的元素或该元素的 ID
+		    text: "http://www.baidu.com",   // 内容可以是文字，链接，邮箱
+		    width: 150,          //设置宽度
+		    height: 150,        // 设置高度
+		    colorDark : "black",        // 设置前景色
+		    // colorLight : "#c0c1c1",        // 设置背景色
+		    correctLevel : QRCode.CorrectLevel.L       // 设置容错级别，上面有介绍
+		}); 
+		</script>
+		<script>
+			function gettime() {
+				var ntm = Date.now(); //获取当前时间戳（毫秒）
+				var time = new Date(ntm); //毫秒转日期格式
+				//使用函数的方式进行定义
+				function dateFormat(fmt, date) {
+					var o = {
+						"M+": date.getMonth() + 1,
+						"d+": date.getDate(),
+						"h+": date.getHours(),
+						"m+": date.getMinutes(),
+						"s+": date.getSeconds(),
+					};
+					if (/(y+)/.test(fmt)) {
+						fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+					}
+					for (var k in o)
+						if (new RegExp("(" + k + ")").test(fmt))
+							fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k])
+								.length)));
+					return fmt;
+				}
+				var showtime = "当前时间:" + dateFormat("yyyy-MM-dd hh:mm:ss", time);
+				// document.getElementById('clock').innerHTML = showtime;
+				document.getElementById('clock2').innerHTML = showtime;
+			}
+			gettime();
+			setInterval("gettime()", 1000);
+		</script>
+
+	</body>
+	<script>
+		let missing = document.querySelector('.missing');
+		let qrCode = document.querySelector('.qrCode');
+		let li = document.querySelectorAll('#menu li');
+		let top1 = document.querySelector('.top');
+		// let bottom = document.querySelector('.bottom span');
+		console.log(li);
+		li[0].onclick =  function(){
+			qrCode.style.display = 'none';
+			missing.style.display = 'block';
+			this.querySelector('span').setAttribute('class', 'border')
+			li[1].querySelector('span').removeAttribute('class', 'border')
+			top1.innerHTML = '<p><span>?</span>如何销假？</p>';
+			// bottom.style.display = 'block';
+		}
+		li[1].onclick = function(){
+			qrCode.style.display = 'block';
+			missing.style.display = 'none';
+			li[0].querySelector('span').removeAttribute('class', 'border')
+			this.querySelector('span').setAttribute('class', 'border');
+			top1.innerHTML = '<p>请出示专属核验二维码，用于验证请假单真伪</p>';
+			// bottom.style.display = 'none';
+		}
+		
+		
+		// 个人信息
+		let userInfo = document.querySelector('.userInfo');
+		let user = document.querySelector('#user');
+		userInfo.onclick = function(){
+			user.style.display = 'flex'
+		}
+		// 点击任意地方均可关闭
+		function closeBox(){
+			user.style.display  = 'none';
+		}
+		// 阻止冒泡
+		function stopEvent(e){
+			e.stopPropagation();
+		}
+	</script>
+</html>

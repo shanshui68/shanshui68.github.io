@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生请假流程生成页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+    <link rel="stylesheet" href="../css/missingStyle.css">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body>
+<div class="header">
+    <div class="span"><ion-icon name="megaphone-outline"></ion-icon></div>
+    <div class="wap">
+        <!-- <p>喜迎二十大，永远跟党走！热烈欢迎2022级新同学,Welcome new students！</p> -->
+        <p>我们生在红旗下，长在春风里，人民有信仰，国家有力量，国庆快乐♥</p>
+    </div>
+</div>
+<form action="home.html" method="get">
+    <div class="segment">
+        <h1>学生请假流程生成页面</h1>
+    </div>
+    <label><input type="text" name="name" placeholder="姓名 (张某某)" required /></label>
+        <label><input type="text" name="stuNo" placeholder="学号 (202112****)" required /></label>
+        <label><input type="text" name="college" placeholder="学院 (机电工程学院)" required /></label>
+        <label><input type="text" name="professional" placeholder="专业 (机械设计与制造)" required /></label>
+        <label><input type="text" name="class" placeholder="班级 (21机械设计与制造2班)" required /></label>
+        <label><input type="text" name="phone" placeholder="电话 (190****9811)" required /></label>
+        <label><input type="text" name="place" placeholder="前往地点 (商业街)" required /></label>
+        <label><input type="text" name="why" placeholder="原因 (干饭)" required /></label>
+        <label><input type="text" name="teacher" placeholder="辅导员名字 (陈某某)" required /></label>
+        <!-- <label class='checkLabel'><input onclick="checkBtn(event)" class='check' type="checkbox" name='radio'><span>Pro版本集成了i河职，非必选！</span></label> -->
+        <button class="red" type="submit" >在线生成 <ion-icon name="cloudy"></ion-icon></button>
+</form>
+        
+        <script>
+        let param = JSON.parse(localStorage.getItem('paramNew')) || [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        ''
+    ];
+    let inputValue = document.querySelectorAll('input');
+    let box = document.querySelector('.box');
+    let check = document.querySelector('.check');
+    // 遍历缓存
+    for (let i = 0;i<inputValue.length;i++){
+        inputValue[i].value = param[i];
+        if(inputValue[i].value == 'undefined'){
+            inputValue[i].value = ''
+        }
+    }
+    // 阻止冒泡
+    function stopEvent(e){
+        e.stopPropagation();
+    }
+    // 点击任意地方均可关闭
+    function closeBox(){
+        box.style.display = 'none';
+    }
+    // 提交
+    function sub(){
+        console.log('code');
+        let code = document.querySelector('.code').value;
+        console.log(code);
+        
+        if (code == '12772'){
+            box.style.display = 'none';
+            check.checked = true;
+        }else{
+            alert('验证码有误，请重新输入');
+        }
+    }
+    
+    function checkBtn(e){
+        // 阻止冒泡
+        e.stopPropagation();
+        console.log(check.checked);
+        if(check.checked){
+            box.style.display = 'flex';
+            check.checked = false;
+        }else{
+            // console.log('false');
+            check.checked = false;
+        }
+        
+    }
+    function toHello(){
+        let param = []
+        for (let i = 0;i<inputValue.length;i++){
+            param.push(inputValue[i].value);
+        }
+        localStorage.setItem('paramNew', JSON.stringify(param))
+    }
+    </script>
+
+</body>
+</html>

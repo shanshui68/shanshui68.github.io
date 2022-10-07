@@ -1,0 +1,250 @@
+/* 
+#dbdfef
+*/
+body, html {
+  background-color: #EBECF0;
+  height: 100%;
+  position: relative;
+}
+
+body, p, input, select, textarea, button {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 16px;
+}
+
+div, p {
+  color: #BABECC;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+form {
+  padding: 16px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.segment {
+  padding: 20px 0;
+  text-align: center;
+}
+
+button, input {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 8px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+}
+
+label {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+input {
+  margin-right: 8px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+.checkLabel:last-child{
+  border:1px solid #AE1100;
+  display: block;
+  height: 20px;
+  width:50px;
+  
+}
+/* 选项按钮 */
+.checkLabel span{
+  color:#8a8a8a;
+  text-shadow: 1px 1px 1px #FFF;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  margin-right: 10px;
+  position: relative;
+}
+
+input[type="checkbox"]:checked::before {
+  /*
+  * \2714-->代表着对号
+  */
+  content: "\2713";
+  /*背景颜色*/
+  background-color: #AE1100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 20px;
+  /*边框颜色*/
+  border: 1px solid #BDBDBD;
+  border-radius:100%;
+  /*字体颜色*/
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: initial;
+}
+
+button {
+  color: #61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+button:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+button .icon {
+  margin-right: 8px;
+}
+button.unit {
+  border-radius: 8px;
+  line-height: 0;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px;
+  font-size: 19.2px;
+}
+button.unit .icon {
+  margin-right: 0;
+}
+button.red {
+  display: block;
+  width: 100%;
+  color: #AE1100;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.input-group label {
+  margin: 0;
+  flex: 1;
+}
+
+.box{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  display:none;
+  width:100%;
+  height:100vh;
+  background-color: #feffffa3;
+  justify-content: center;
+	align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+
+.content{
+  z-index: 4;
+  width:200px;
+  padding: 10px;
+  border-radius:3px;
+  background-color: #dbdfef;
+}
+.content h3{
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.content img{
+  display: block;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+}
+.content input{
+  margin: 10px 0;
+}
+.content button{
+
+  width: 80%;
+  margin-left: 10%;
+}
+
+*{
+  margin: 0;
+  padding:0;
+}
+/* 滚动条 */
+.header{
+  /* background-color: #BABECC; */
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #cacedc;
+  border-radius: 5px;
+  
+
+}
+.header .span{
+  display: inline-block;
+}
+.wap{
+  width: 90%;
+  display: inline-block;
+  overflow: hidden;
+  
+}
+
+
+.wap p{
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 3px;
+  width: 100%;
+  transform: translate(100%);
+  animation: nameTo 10s linear infinite;
+  color: #AE1100;
+}
+
+@-webkit-keyframes nameTo{
+  0%{
+    transform: translate(100%);
+  }
+  25%{
+    transform: translate(40%);
+  }
+  50%{
+    transform: translate(-40%);
+  }
+  75%{
+    transform: translate(-120%);
+  }
+  100%{
+    transform: translate(-200%);
+  }
+}
+.header ion-icon {
+  font-size: 19px;
+  color: #AE1100;
+}

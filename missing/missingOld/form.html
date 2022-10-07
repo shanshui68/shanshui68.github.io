@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>河源职业技术学院学生请假流程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/easyui.css"  />
+    <link rel="stylesheet" type="text/css" href="../css/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../css/engine_openform_mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../css/form.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.1/vue.js"></script>
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body style="margin: 46px 0px 0px; zoom: 1;">
+    <div id="app">
+    <table width="100%" border="0" cellpadding="2" cellspacing="6" class="ApprovalToptable" id="TopFormTable">
+        <tbody>
+            <tr>
+                <td colspan="4" align="center" style="padding-top:5px;font-size:20px;font-family:'微软雅黑','宋体';color:#000">
+                    <b>河源职业技术学院学生请假流程</b>
+                </td>
+            </tr>
+            <tr>
+                <td nowrap="" width="5%" align="right">当前处理人:</td>
+                <td width="40%"></td>
+                <td align="right" width="40%" nowrap="">申请时间:</td>
+                <td width="5%" nowrap="">{{time1}}</td>
+            </tr>
+            <tr>
+                <td align="right">当前状态:</td>
+                <td>已结束</td>
+                <td align="right">申请者:</td>
+                <td>{{name}}</td>
+            </tr>
+            <tr>
+                <td align="right">流转记录:</td>
+                <td><a href="#">查看流转记录</a>
+                </td>
+                <td align="right">图形监控:</td>
+                <td><a href="#">查看流程图</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <table class="linkeytable" data-sort="sortDisabled">
+        <tbody>
+            <tr class="firstRow">
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1" class="texttd">事务标题
+                </td>
+                <td valign="middle" rowspan="1" colspan="1"><span id="subject">河源职业技术学院学生请假流程_{{name}}_<?php echo date("Ymd")?></span></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">姓名<span id="_baidu_bookmark_start_1" style="line-height: 0px; display: none;">‍</span></td>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="XM">{{name}}</span></td>
+            </tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">电话<br></td>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="DH">{{phone }} </span>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">专业班级</td>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="ZYBJ">{{class1 }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">年级</td>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="NJ">{{year}}</span></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1" class="texttd">请假类型
+                </td>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1"><input disabled="" name="QJLX" id="QJLX" type="radio" checked="" value="1">事假<input disabled="" name="QJLX" id="QJLX" type="radio" value="2">病假<input disabled="" name="QJLX" id="QJLX" type="radio" value="3">公假</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1" class="texttd">请假原因
+                </td>
+                <td valign="middle" rowspan="1" colspan="1"><span id="QJYY">{{why}}</span></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1" class="texttd">请假时间
+                </td>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1"><span id="QJSJ1"><?php echo date("Y-m-d")?></span>&nbsp;一&nbsp;<span id="QJSJ2"><?php echo date("Y-m-d",time()+86400)?></span>共计<span id="QJTSSL">1</span>天<span id="SFTY" style="display:none">不同意</span></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd"><span style="font-size: 12px;"><span style="font-size: 12px;">前往地点</span></span></td>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="QWDD">{{place }}</span></td>
+            </tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">&nbsp;<span style="font-size: 12px;">家长手机号码</span></td>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;"><span id="JZSJHM">{{family }}</span></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1" class="texttd">注意事项
+                </td>
+                <td valign="middle" style="-ms-word-break: break-all;" rowspan="1" colspan="1">
+                    <p>1、请假七天以内的，由辅导员审批；请假七天以上一个月以内的，经辅导员同意后报学院副书记审批；请假一个月以上两个月以内的，辅导员报学院研究决定，由二级学院院长审批，并报学生工作处备案。
+                    </p>
+                    <p>2.、学生要提高安全防范意识，在请假期间所发生的一切意外事故由学生本人负责<br></p>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">附件上传<span id="_baidu_bookmark_start_0" style="line-height: 0px; display: none;">‍</span></td>
+                <td valign="middle" rowspan="1" colspan="1">
+                    <div id="file1" class="attachmentlist" readtype="true">
+                    </div>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td width="245" valign="middle" style="-ms-word-break: break-all;" class="texttd">审批意见</td>
+                <td valign="middle" rowspan="1" colspan="1"><span class="ue_t" id="SPYJ" name="SPYJ" type="remark" remarktype="ALL">
+                        <div style="padding-left:8px;color:#0066cc">同意!</div>
+                        <div align="right" style="padding-right:30px;">辅导员审批 <font color="#339900">
+                                {{teacher }} /教职工/教学部门/{{college }}</font>
+                            <font color="#999999">{{time2}}</font>
+                        </div>
+                        <hr style="border: 1px dashed #cccccc; width: 98%; height: 1px;" align="left">
+                    </span></td>
+            </tr>
+            <tr></tr>
+        </tbody>
+    </table>
+    <p><br></p><!-- FormBody End-->
+</div>
+<script>
+    let nowTime = new Date().getTime();
+        // 随机数函数
+    function rand(minimum, maximum){
+        return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+    }
+
+    // 获取时间格式
+    function getNowTime(usertime){
+        console.log(usertime);
+        let time = new Date(usertime);
+        let y = time.getFullYear();
+        let mon = (time.getMonth()+1)>=10?(time.getMonth()+1):'0'+(time.getMonth()+1); 
+        let d = (time.getDate())>=10?time.getDate():'0'+(time.getDate());
+        let h = (time.getHours())>=10?time.getHours():'0'+(time.getHours());
+        let m = (time.getMinutes())>=10?time.getMinutes():'0'+(time.getMinutes());
+        // console.log(mon);
+        return y+'-'+mon+'-'+d+' '+h+':'+m
+    }
+    var urlParams=new URLSearchParams(location.search);
+    new Vue({
+        el:'#app',
+        data() {
+            return {
+                name: urlParams.get("name"),
+                year:urlParams.get("year"),
+                college:urlParams.get("college"),
+                class1:urlParams.get("class"),
+                phone:urlParams.get("phone"),
+                why:urlParams.get("why"),
+                family:urlParams.get("family"),
+                place:urlParams.get("place"),
+                teacher:urlParams.get("teacher"),
+                time1:getNowTime(nowTime-1000*rand(4000,5000)),
+                time2:getNowTime(nowTime-1000*rand(7000,8000)),
+            }
+        },
+    })
+</script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>i 河职</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.1/vue.js"></script>
+
+	<!-- <script src="https://unpkg.com/vue@3.2.39/dist/vue.global.js"></script> -->
+	<script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9c84ad81d0e6c11abcad2727a44dda5a";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+	<style>
+		:root {
+			--imgSize: 40px;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		body {
+			background-color: rgb(235, 235, 235);
+		}
+
+		.title {
+			height: 30px;
+			line-height: 30px;
+			margin-left: 20px;
+		}
+
+		.main:first-child .title {
+			height: 0px;
+		}
+
+		.main:first-child li {
+			border-bottom: .5px solid rgb(235, 235, 235);
+		}
+
+		ul {
+			background-color: #fff;
+		}
+
+		li {
+			height: 40px;
+
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			padding: 5px;
+			padding-left: 15px;
+			/* border-bottom: .5px solid rgb(235, 235, 235); */
+		}
+
+		img {
+			width: var(--imgSize);
+			height: var(--imgSize);
+			border-radius: 3px;
+		}
+
+		.left {
+			width: 10%;
+		}
+
+		.right {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			width: 90%;
+			margin-left: 20px;
+			height: 50px;
+			border-bottom: .5px solid rgb(235, 235, 235);
+		}
+
+		ul li:last-child .right {
+			border: none;
+		}
+		#app{
+			width: 100%;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div id="app">
+		<div class="main" v-for="(item, index) in dataList">
+			<div class="title">{{item.name}}</div>
+			<ul>
+				<li @click="httpPost" v-for="(itemData, idx) in item.data">
+					<div class="left">
+						<img :src=itemData.imgUrl alt="" srcset="">
+					</div>
+					<div class="right">{{itemData.name}}</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="module">
+        function geturl(url){
+            let arr = url.split('?');
+            let res = arr[1].split('&');
+            let items = {};
+            console.log(url);
+            for(let i=0;i<res.length;i++){
+            let a = res[i].split('=');
+            items[a[0]] = decodeURIComponent(decodeURI(a[1]));
+            }
+            console.log(items);
+            return items
+        }
+
+        let PARAMS =geturl(location.search);
+        
+        
+		var example1 = new Vue({
+			el: '#app',
+			data: {
+				dataList: [
+					{
+						name: '',
+						data: [
+							{
+								name: '信息',
+								imgUrl: "../img/1.png"
+							},
+							{
+								name: '企业通讯录',
+								imgUrl: "../img/2.png"
+							},
+							{
+								name: '我',
+								imgUrl: "../img/3.png"
+							}],
+					},
+					{
+						name: 'A',
+						data: [
+							{
+								name: 'A.卡消费扫码',
+								imgUrl: "../img/4_5.png"
+							},
+							{
+								name: 'A.网上办事大厅',
+								imgUrl: "../img/4_5.png"
+							},
+							{
+								name: 'A.一卡通充值',
+								imgUrl: "../img/6.png"
+							},
+							{
+								name: 'AI人工智能问答',
+								imgUrl: "../img/7.png"
+							}
+						],
+					},
+					{
+						name: 'C',
+						data: [
+							{
+								name: '财务缴费',
+								imgUrl: "../img/8.png"
+							},
+							{
+								name: '成绩查询',
+								imgUrl: "../img/9.png"
+							},
+
+						],
+					},
+					{
+						name: 'D',
+						data: [
+							{
+								name: '电子离校单',
+								imgUrl: "../img/10.png"
+							}
+						],
+					},
+					{
+						name: 'F',
+						data: [
+							{
+								name: '辅导员通知',
+								imgUrl: "../img/11.png"
+							},
+						],
+					},
+					{
+						name: 'H',
+						data: [
+							{
+								name: '河职易班',
+								imgUrl: "../img/12.png"
+							},
+							{
+								name: '河职资讯',
+								imgUrl: "../img/13.png"
+							}
+						],
+					},
+					{
+						name: 'I',
+						data: [
+							{
+								name: 'i河职小助手',
+								imgUrl: "../img/14.png"
+							}
+						],
+					},
+					{
+						name: 'J',
+						data: [
+							{
+								name: '就业服务平台',
+								imgUrl: "../img/16.png"
+							}
+						]
+					},
+					{
+						name: 'K',
+						data: [
+							{
+								name: '课表查询',
+								imgUrl: "../img/17.png"
+							},
+							{
+								name: '快速通道(学生端)',
+								imgUrl: "../img/18.png"
+							}
+						]
+					},
+					{
+						name: 'Q',
+						data: [
+							{
+								name: '勤为本',
+								imgUrl: "../img/18.png"
+							},
+							{
+								name: '情怀河职',
+								imgUrl: "../img/19.png"
+							}
+						]
+					},
+					{
+						name: 'R',
+						data: [
+							{
+								name: '人脸通行系统',
+								imgUrl: "../img/20.png"
+							}
+						]
+					},
+					{
+						name: 'S',
+						data: [
+							{
+								name: '身份证查询缴费地址',
+								imgUrl: "../img/21.png"
+							},
+							{
+								name: '实训室安全管理平台',
+								imgUrl: "../img/22.png"
+							}
+						]
+					},
+					{
+						name: 'T',
+						data: [
+							{
+								name: '体育·美育工作简报',
+								imgUrl: "../img/23.png"
+							}
+						]
+					},
+					{
+						name: 'W',
+						data: [
+							{
+								name: '忘记密码(如果换了手机后，先账号申诉，再操作找回密码)',
+								imgUrl: "../img/24.png"
+							},
+							{
+								name: '网上报修',
+								imgUrl: "../img/25.png"
+							}
+						]
+					},
+					{
+						name: 'X',
+						data: [
+							{
+								name: '心理健康(网络用校内HZY_WIFI)',
+								imgUrl: "../img/26.png"
+							},
+							{
+								name: '选课(网络用校内HZY_WIFI)',
+								imgUrl: "../img/27.png"
+							},
+							{
+								name: '选修查询',
+								imgUrl: "../img/28.png"
+							},
+							{
+								name: '学校公告',
+								imgUrl: "../img/29.png"
+							},
+							{
+								name: '学校移动主站',
+								imgUrl: "../img/30.png"
+							}
+
+						]
+					},
+					{
+						name: 'Y',
+						data: [
+							{
+								name: '移动图书馆',
+								imgUrl: "../img/31.png"
+							},
+							{
+								name: '银行卡采集',
+								imgUrl: "../img/32.png"
+							}
+						]
+					},
+					{
+						name: 'Z',
+						data: [
+							{
+								name: '智慧校园应用和推广',
+								imgUrl: "../img/33.png"
+							}
+						]
+					}
+
+				]
+			},
+			methods: {
+				httpPost: function () {
+					var temp = document.createElement("form");
+					temp.action = './list.html';
+					temp.method = "get";
+					temp.style.display = "none";
+                    // let PARAMS = PARAMS;
+                    console.log(PARAMS);
+					for (var x in PARAMS) {
+						var opt = document.createElement("textarea");
+                        opt.name = x;
+                        opt.value = PARAMS[x];
+                        temp.appendChild(opt);
+					}
+
+					document.body.appendChild(temp);
+					temp.submit();
+
+					return temp;
+				}
+			},
+		})
+	</script>
+
+</body>
+
+</html>
